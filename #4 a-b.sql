@@ -3,18 +3,16 @@ SELECT MIN(low) AS Min_Temp
 FROM FORECAST
 WHERE CITY = 'Duluth'; */
 
-/* b they both display the same thing. im not sure which is correct
+/* b */
 /*
 SELECT consumers.pid, person.name 
-FROM consumers
-JOIN person on consumers.pid = person.pid
-WHERE consumers.pid IN (SELECT views.pid
-                        FROM views);
-
-/*Another way for b
-SELECT person.pid, person.name FROM person
-WHERE person.pid IN (SELECT consumers.pid FROM consumers, views
-                 WHERE consumers.pid = views.pid);
+FROM consumers, person, views, address, forecast
+WHERE consumers.pid = views.pid 
+AND views.pid = person.pid 
+AND person.pid = address.pid
+AND views.fid = forecast.fid
+AND address.city = forecast.city 
+GROUP BY consumers.pid, person.name;
 */
 
 /* c
