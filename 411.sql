@@ -134,7 +134,8 @@ create table Warnings(
 wwid char(10),
 w_date date,
 city char(20),
-description char(50)
+description char(50),
+Primary key(wwid)
 );
 -----------------------------------------
 INSERT INTO Warnings(wwid, description, city, w_date)
