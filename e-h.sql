@@ -23,8 +23,7 @@ SELECT person.pid, COUNT(viewed.fid), COUNT(presents.fid)
 FROM person
 LEFT JOIN viewed ON person.pid = viewed.pid
 LEFT JOIN forecast ON viewed.fid = forecast.fid 
-LEFT JOIN presents ON person.pid = presents.pid
-LEFT JOIN forecast ON presents.fid = forecast.fid 
+/*LEFT JOIN presents ON person.pid = presents.pid */
 group by person.pid;
 
 SELECT person.pid, COUNT(presents.fid)
