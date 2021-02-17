@@ -1,71 +1,81 @@
-Project 1   
-Saurav Adhikari
+--Project 1--   
+--Saurav Adhikari--
 
-----------------------
-create table Observers(
-  pid integer,
-  name char(20),
-  primary key(pid)
-  );
-------------------------
-INSERT INTO Observers(pid,name)
+create table Person(
+pid integer,
+name char(20),
+primary key(pid)
+);
+-----------------------
+INSERT INTO Person(pid,name)
 VALUES(10234,'Able');
-INSERT INTO Observers(pid,name)
+INSERT INTO Person(pid,name)
 VALUES(11567,'Baker');
-INSERT INTO Observers(pid,name)
+INSERT INTO Person(pid,name)
 VALUES(3289,'George');
-INSERT INTO Observers(pid,name)
+INSERT INTO Person(pid,name)
 VALUES(88331,'Alice');
-
+INSERT INTO Person(pid,name)
+VALUES(17645,'Mary');
+INSERT INTO Person(pid,name)
+VALUES(74591,'Jane');
+INSERT INTO Person(pid,name)
+VALUES(2557,'Bill');
+-----------------------
+-----------------------
+create table Observers(
+pid integer,
+primary key(pid),
+foreign key (pid) references Person (pid)
+);
+-----------------------
+INSERT INTO Observers(pid)
+VALUES(10234);
+INSERT INTO Observers(pid)
+VALUES(11567);
+INSERT INTO Observers(pid)
+VALUES(3289);
+INSERT INTO Observers(pid)
+VALUES(88331);
 -----------------------
 -----------------------
 create table Meteorologists(
 pid integer,
-name char(20),
-primary key(pid)
+primary key(pid),
+foreign key (pid) references Person (pid)
 );
 -----------------------
-INSERT INTO Meteorologists(pid,name)
-VALUES(74591,'Jane');
-INSERT INTO Meteorologists(pid,name)
-VALUES(17645,'Mary');
-INSERT INTO Meteorologists(pid,name)
-VALUES(10234,'Able');
+INSERT INTO Meteorologists(pid)
+VALUES(74591);
+INSERT INTO Meteorologists(pid)
+VALUES(17645);
+INSERT INTO Meteorologists(pid)
+VALUES(10234);
 -----------------------
 -----------------------
 create table Consumers(
 pid integer,
-name char(20),
-primary key(pid)
+primary key(pid),
+foreign key (pid) references Person (pid)
 );
 -----------------------
-INSERT INTO Consumers(pid,name)
-VALUES(3289,'George');
-INSERT INTO Consumers(pid,name)
-VALUES(88331,'Alice');
-INSERT INTO Consumers(pid,name)
-VALUES(74591,'Jane');
-INSERT INTO Consumers(pid,name)
-VALUES(10234,'Able');
---------------------------
--------------------------
-create table Outsider(
-pid integer,
-name char(20),
-primary key(pid)
-);
+INSERT INTO Consumers(pid)
+VALUES(3289);
+INSERT INTO Consumers(pid)
+VALUES(88331);
+INSERT INTO Consumers(pid)
+VALUES(74591);
+INSERT INTO Consumers(pid)
+VALUES(10234);
 -----------------------
-INSERT INTO Outsider(pid,name)
-VALUES(2557,'Bill');
--------------------------
--------------------------
+-----------------------
 create table Address(
   pid integer,
   streetAddress char(20),
   city char(20),
   state char(10),
   primary key(streetAddress,city,state),
-  foreign key (pid) references Observers (pid)
+  foreign key (pid) references Person (pid)
 );
 --------------------------
 INSERT INTO Address(pid,streetAddress,city,state) 
@@ -83,7 +93,7 @@ VALUES(88331,'342 streetC','Monticello','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
 VALUES(2557,'6 streetA','St. Paul','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
-VALUES(NULL ,'789 streetE','Duluth','MN');
+VALUES(NULL ,'798 streetE','Duluth','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
 VALUES(74591,'999 streetG','Duluth','MN');
 -----------------------------------------
@@ -119,7 +129,6 @@ VALUES('F09',76,62,'Minneapolis', TO_DATE('15-JAN-2021', 'DD-MON-YYYY'));
 INSERT INTO Forecast(fid, high, low, city, forecast_date)
 VALUES('F15',95,72,'St. Cloud', TO_DATE('03-FEB-2021', 'DD-MON-YYYY'));
 -----------------------------------------
---------------------------------
 
 
 
