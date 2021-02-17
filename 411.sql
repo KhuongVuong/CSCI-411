@@ -193,7 +193,7 @@ VALUES(10234,'F09');
 INSERT INTO Views(pid, fid)
 VALUES(88331,'F03');
 INSERT INTO Views(pid, fid)
-VALUES(88331,'F04')
+VALUES(88331,'F04');
 -----------------------------------------
 --------------------------------                                                 
 create table Observations(
