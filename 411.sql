@@ -73,7 +73,7 @@ VALUES(10234,'342 streetA','Monticello','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
 VALUES(11567,'344 streetA','Monticello','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
-VALUES(NULL ,'65 streetS','StCloud','MN');
+VALUES(NULL ,'65 streetS','St. Cloud','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
 VALUES(3289,'892 streetM','Minneapolis','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
@@ -81,7 +81,7 @@ VALUES(17645,'342 streetB','Monticello','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
 VALUES(88331,'342 streetC','Monticello','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
-VALUES(2557,'6 streetA','StPaul','MN');
+VALUES(2557,'6 streetA','St. Paul','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
 VALUES(NULL ,'789 streetE','Duluth','MN');
 INSERT INTO Address(pid,streetAddress,city,state) 
