@@ -4,19 +4,23 @@ FROM FORECAST
 WHERE CITY = 'Duluth'; */
 
 /* b they both display the same thing. im not sure which is correct
-fist method */
 /*
-SELECT DISTINCT CONSUMERS.PID, CONSUMERS.NAME
-FROM CONSUMERS
-JOIN ADDRESS ON CONSUMERS.PID = ADDRESS.PID
-JOIN FORECAST ON ADDRESS.CITY = FORECAST.CITY; 
-/* b 2nd method */
-/*
-SELECT DISTINCT CONSUMERS.PID, CONSUMERS.NAME, ADDRESS.PID, ADDRESS.CITY, FORECAST.CITY
-FROM CONSUMERS, ADDRESS, FORECAST
-WHERE CONSUMERS.PID = ADDRESS.PID AND ADDRESS.CITY = FORECAST.CITY; */
+SELECT consumers.pid, person.name 
+FROM consumers
+JOIN person on consumers.pid = person.pid
+WHERE consumers.pid IN (SELECT views.pid
+                        FROM views);
 
+/*Another way for b
+SELECT person.pid, person.name FROM person
+WHERE person.pid IN (SELECT consumers.pid FROM consumers, views
+                 WHERE consumers.pid = views.pid);
+*/
 
+/* c
+SELECT DISTINCT streetaddress, city, state, MAX(temperature)
+FROM Observations 
+GROUP  BY streetaddress, city, state */
 
 
 
