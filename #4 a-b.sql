@@ -21,13 +21,13 @@ FROM Observations
 GROUP  BY streetaddress, city, state */
 
 /* d
-SELECT records.fid,
+SELECT forecast.fid,
 COUNT(CASE method WHEN 'notebook' THEN 1 ELSE NULL END) AS "notebook",
 COUNT(CASE method WHEN 'online' THEN 1 ELSE NULL END) AS "online"
-FROM records , Forecast, Observations
-WHERE records.fid = Forecast.fid AND records.oid = Observations.oid
-GROUP BY records.fid, records.oid 
-ORDER BY records.fid */
+FROM records , forecast, observations
+WHERE records.fid = forecast.fid AND records.oid = observations.oid
+GROUP BY forecast.fid, records.oid 
+ORDER BY forecast.fid */
 
 
 
