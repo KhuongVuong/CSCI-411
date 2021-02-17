@@ -117,7 +117,7 @@ VALUES('F08',81,56,'Duluth', TO_DATE('15-JAN-2021', 'DD-MON-YYYY'));
 INSERT INTO Forecast(fid, high, low, city, forecast_date)
 VALUES('F09',76,62,'Minneapolis', TO_DATE('15-JAN-2021', 'DD-MON-YYYY'));
 INSERT INTO Forecast(fid, high, low, city, forecast_date)
-VALUES('F15',95,72,'St.Cloud', TO_DATE('03-FEB-2021', 'DD-MON-YYYY'));
+VALUES('F15',95,72,'St. Cloud', TO_DATE('03-FEB-2021', 'DD-MON-YYYY'));
 -----------------------------------------
 --------------------------------
 
