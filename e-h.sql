@@ -19,6 +19,20 @@ AND address.pid NOT IN
 
 /* PROBLEM F */
 
+SELECT person.pid, COUNT(viewed.fid), COUNT(presents.fid)
+FROM person
+LEFT JOIN viewed ON person.pid = viewed.pid
+LEFT JOIN forecast ON viewed.fid = forecast.fid 
+LEFT JOIN presents ON person.pid = presents.pid
+LEFT JOIN forecast ON presents.fid = forecast.fid 
+group by person.pid
+
+SELECT person.pid, COUNT(presents.fid)
+FROM person
+LEFT JOIN presents ON person.pid = presents.pid
+LEFT JOIN forecast ON presents.fid = forecast.fid 
+group by person.pid;
+
 /* PROBLEM G */
 SELECT observations.city, observations.ob_date, observations.temperature, forecast.low 
 FROM observations, forecast
