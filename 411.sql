@@ -129,6 +129,20 @@ VALUES('F09',76,62,'Minneapolis', TO_DATE('15-JAN-2021', 'DD-MON-YYYY'));
 INSERT INTO Forecast(fid, high, low, city, forecast_date)
 VALUES('F15',95,72,'St. Cloud', TO_DATE('03-FEB-2021', 'DD-MON-YYYY'));
 -----------------------------------------
-
-
+--------------------------------
+create table Warnings(
+wwid char(10),
+w_date date,
+city char(20),
+description char(50)
+);
+-----------------------------------------
+INSERT INTO Warnings(wwid, description, city, w_date)
+VALUES('W03','Winter Storm Warning','Duluth', TO_DATE('31-DEC-2020', 'DD-MON-YYYY'));
+INSERT INTO Warnings(wwid, description, city, w_date)
+VALUES('W08','Flood Warning','Duluth', TO_DATE('15-JAN-2021', 'DD-MON-YYYY'));
+INSERT INTO Warnings(wwid, description, city, w_date)
+VALUES('W15','Cold Warning','St. Cloud', TO_DATE('05-FEB-2021', 'DD-MON-YYYY'));
+-----------------------------------------
+--------------------------------
 
