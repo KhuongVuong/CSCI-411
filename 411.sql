@@ -174,3 +174,25 @@ INSERT INTO Presents(pid, fid)
 VALUES(10234,'F09');
 -----------------------------------------
 --------------------------------
+create table Views(
+pid integer,
+fid char(10),
+primary key(pid, fid),
+foreign key (pid) references Consumers (pid),
+foreign key (fid) references Forecast (fid)
+);
+-----------------------------------------
+INSERT INTO Views(pid, fid)
+VALUES(3289,'F04');
+INSERT INTO Views(pid, fid)
+VALUES(3289,'F09');
+INSERT INTO Views(pid, fid)
+VALUES(10234,'F02');
+INSERT INTO Views(pid, fid)
+VALUES(10234,'F09');
+INSERT INTO Views(pid, fid)
+VALUES(88331,'F03');
+INSERT INTO Views(pid, fid)
+VALUES(88331,'F04')
+-----------------------------------------
+--------------------------------                                                 
