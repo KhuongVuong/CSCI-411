@@ -335,3 +335,29 @@ INSERT INTO Makes(fid, wid, oid)
 VALUES('F09',400,12);
 INSERT INTO Makes(fid, wid, oid)
 VALUES('F15',200,14);                                               
+-----------------------------------------
+--------------------------------------- 
+create table livesAt(
+pid integer,
+streetAddress char(20),
+city char(20),
+state char(10),
+primary key(pid, streetAddress,city, state),
+foreign key (pid) references Person (pid),
+foreign key (streetAddress,city, state) references Address (streetAddress,city, state)
+);
+-----------------------------------------
+INSERT INTO LivesAt(pid,streetAddress,city,state) 
+VALUES(10234,'342 streetA','Monticello','MN');
+INSERT INTO LivesAt(pid,streetAddress,city,state) 
+VALUES(11567,'344 streetA','Monticello','MN');
+INSERT INTO LivesAt(pid,streetAddress,city,state) 
+VALUES(3289,'892 streetM','Minneapolis','MN');
+INSERT INTO LivesAt(pid,streetAddress,city,state) 
+VALUES(17645,'342 streetB','Monticello','MN');
+INSERT INTO LivesAt(pid,streetAddress,city,state) 
+VALUES(88331,'342 streetC','Monticello','MN');
+INSERT INTO LivesAt(pid,streetAddress,city,state) 
+VALUES(2557,'6 streetA','St.Paul','MN');
+INSERT INTO LivesAt(pid,streetAddress,city,state) 
+VALUES(74591,'999 streetG','Duluth','MN');                                                
