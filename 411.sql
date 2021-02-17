@@ -146,4 +146,31 @@ INSERT INTO Warnings(wwid, description, city, w_date)
 VALUES('W15','Cold Warning','St. Cloud', TO_DATE('05-FEB-2021', 'DD-MON-YYYY'));
 -----------------------------------------
 --------------------------------
-
+create table Presents(
+pid integer,
+fid char(10),
+primary key(pid, fid),
+foreign key (pid) references Meteorologists (pid),
+foreign key (fid) references Forecast (fid)
+);
+-----------------------------------------
+INSERT INTO Presents(pid, fid)
+VALUES(17645,'F02');
+INSERT INTO Presents(pid, fid)
+VALUES(17645,'F03');
+INSERT INTO Presents(pid, fid)
+VALUES(17645,'F04');
+INSERT INTO Presents(pid, fid)
+VALUES(17645,'F05');
+INSERT INTO Presents(pid, fid)
+VALUES(17645,'F08');
+INSERT INTO Presents(pid, fid)
+VALUES(17645,'F09');
+INSERT INTO Presents(pid, fid)
+VALUES(17645,'F15');
+INSERT INTO Presents(pid, fid)
+VALUES(10234,'F04');
+INSERT INTO Presents(pid, fid)
+VALUES(10234,'F09');
+-----------------------------------------
+--------------------------------
