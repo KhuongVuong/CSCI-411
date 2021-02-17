@@ -306,4 +306,32 @@ INSERT INTO Issued(wid, wwid)
 VALUES(600,'W15');
 -----------------------------------------
 ---------------------------------------                                               
-
+create table Makes(
+wid integer,
+fid char(10),
+oid integer,
+primary key(wid, fid,oid),
+foreign key(wid) references Wservice(wid),
+foreign key(fid) references forecast(fid),
+foreign key(oid) references Observations(oid)
+);
+-----------------------------------------
+--------------------------------------- 
+ INSERT INTO Makes(fid, wid, oid)
+VALUES('F02',200,2);
+INSERT INTO Makes(fid, wid, oid)
+VALUES('F03',600,4);
+INSERT INTO Makes(fid, wid, oid)
+VALUES('F03',600,2);
+INSERT INTO Makes(fid, wid, oid)
+VALUES('F04',400,6);
+INSERT INTO Makes(fid, wid, oid)
+VALUES('F04',400,2);
+INSERT INTO Makes(fid, wid, oid)
+VALUES('F05',200,8);
+INSERT INTO Makes(fid, wid, oid)
+VALUES('F08',600,10);
+INSERT INTO Makes(fid, wid, oid)
+VALUES('F09',400,12);
+INSERT INTO Makes(fid, wid, oid)
+VALUES('F15',200,14);                                               
