@@ -1,0 +1,15 @@
+drop table makes;
+drop table presents;
+drop table issued;
+drop table viewed;
+drop table records;
+drop table observations;
+drop table warnings;
+drop table forecast;
+drop table livesat;
+drop table wservice;
+drop table address;
+drop table consumers;
+drop table meteorologists;
+drop table observers;
+drop table person;
