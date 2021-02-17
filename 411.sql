@@ -174,7 +174,7 @@ INSERT INTO Presents(pid, fid)
 VALUES(10234,'F09');
 -----------------------------------------
 --------------------------------
-create table Views(
+create table Viewed(
 pid integer,
 fid char(10),
 primary key(pid, fid),
@@ -182,17 +182,17 @@ foreign key (pid) references Consumers (pid),
 foreign key (fid) references Forecast (fid)
 );
 -----------------------------------------
-INSERT INTO Views(pid, fid)
+INSERT INTO Viewed(pid, fid)
 VALUES(3289,'F04');
-INSERT INTO Views(pid, fid)
+INSERT INTO Viewed(pid, fid)
 VALUES(3289,'F09');
-INSERT INTO Views(pid, fid)
+INSERT INTO Viewed(pid, fid)
 VALUES(10234,'F02');
-INSERT INTO Views(pid, fid)
+INSERT INTO Viewed(pid, fid)
 VALUES(10234,'F09');
-INSERT INTO Views(pid, fid)
+INSERT INTO Viewed(pid, fid)
 VALUES(88331,'F03');
-INSERT INTO Views(pid, fid)
+INSERT INTO Viewed(pid, fid)
 VALUES(88331,'F04');
 -----------------------------------------
 --------------------------------                                                 
@@ -289,3 +289,21 @@ INSERT INTO Records(fid, wid, oid)
 VALUES('F15',200,14);
 -----------------------------------------
 ----------------------------------------                                               
+create table Issued(
+wid integer,
+wwid char(10),
+primary key(wid, wwid),
+foreign key(wid) references Wservice(wid),
+foreign key(wwid) references Warnings(wwid)
+);
+--------------------------------------
+------------------------------------------------
+INSERT INTO Issued(wid, wwid)
+VALUES(200,'W03');
+INSERT INTO Issued(wid, wwid)
+VALUES(200,'W08');
+INSERT INTO Issued(wid, wwid)
+VALUES(600,'W15');
+-----------------------------------------
+---------------------------------------                                               
+
