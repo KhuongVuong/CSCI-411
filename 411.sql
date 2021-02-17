@@ -241,3 +241,20 @@ INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, str
 VALUES(32,TO_DATE('15-JAN-2021','DD-MON-YYYY'),27,45,0.0,'892 streetM','Minneapolis','MN','3289','online');
 INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
 VALUES(34,TO_DATE('3-FEB-2021','DD-MON-YYYY'),33,63,0.0,'65 streetS','St.Cloud','MN','11567','notebook');
+-------------------------------------------
+----------------------------------------------                                            
+create table Wservice(
+    wid integer,
+    w_name char(30),
+    primary key(wid)
+);
+------------------------------
+--------------------------
+INSERT INTO Wservice(wid, w_name)
+VALUES (200, 'Minnesota Weather Service');
+INSERT INTO Wservice(wid, w_name)
+VALUES (400, 'Central U.S. Weather Service');
+INSERT INTO Wservice(wid, w_name)
+VALUES (600, 'Canadian Weather Service');
+
+                                            
