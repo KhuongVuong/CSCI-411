@@ -256,5 +256,36 @@ INSERT INTO Wservice(wid, w_name)
 VALUES (400, 'Central U.S. Weather Service');
 INSERT INTO Wservice(wid, w_name)
 VALUES (600, 'Canadian Weather Service');
-
-                                            
+-------------------------------------
+--------------------------------------
+create table Records(
+fid char(10),
+wid integer,
+oid integer,
+primary key(fid, wid, oid),
+foreign key(fid) references Forecast(fid),
+foreign key(wid) references Wservice(wid),
+foreign key(oid) references Observations(oid)
+);
+--------------------------------------
+------------------------------------------------
+INSERT INTO Records(fid, wid, oid)
+VALUES('F02',200,2);
+INSERT INTO Records(fid, wid, oid)
+VALUES('F03',600,4);
+INSERT INTO Records(fid, wid, oid)
+VALUES('F03',600,2);
+INSERT INTO Records(fid, wid, oid)
+VALUES('F04',400,6);
+INSERT INTO Records(fid, wid, oid)
+VALUES('F04',400,2);
+INSERT INTO Records(fid, wid, oid)
+VALUES('F05',200,8);
+INSERT INTO Records(fid, wid, oid)
+VALUES('F08',600,10);
+INSERT INTO Records(fid, wid, oid)
+VALUES('F09',400,12);
+INSERT INTO Records(fid, wid, oid)
+VALUES('F15',200,14);
+-----------------------------------------
+----------------------------------------                                               
