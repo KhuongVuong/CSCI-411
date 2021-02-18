@@ -1,10 +1,13 @@
-/* a
+
+/* a */
 SELECT MIN(low) AS Min_Temp
 FROM FORECAST
-WHERE CITY = 'Duluth'; */
-
+WHERE CITY = 'Duluth'; 
+/*Out put
+  MIN_TEMP
+----------
+         7 */
 /* b */
-/*
 SELECT consumers.pid, person.name 
 FROM consumers, person, views, address, forecast
 WHERE consumers.pid = views.pid 
@@ -13,14 +16,21 @@ AND person.pid = address.pid
 AND views.fid = forecast.fid
 AND address.city = forecast.city 
 GROUP BY consumers.pid, person.name;
-*/
 
-/* c
+
+/* c */
 SELECT DISTINCT streetaddress, city, state, MAX(temperature)
 FROM Observations 
-GROUP  BY streetaddress, city, state */
+GROUP  BY streetaddress, city, state 
+/*
+Out put
+STREETADDRESS        CITY                 STATE      Max_Temperature
+-------------------- -------------------- ---------- ---------------
+892 streetM          Minneapolis          MN                      38
+65 streetS           St.Cloud             MN                      42
+798 streetE          Duluth               MN                      19 */
 
-/* d
+/* d */
 SELECT forecast.fid,
 COUNT(CASE method WHEN 'notebook' THEN 1 ELSE NULL END) AS "notebook",
 COUNT(CASE method WHEN 'online' THEN 1 ELSE NULL END) AS "online"
@@ -28,7 +38,19 @@ FROM records , forecast, observations
 WHERE records.fid = forecast.fid AND records.oid = observations.oid
 GROUP BY forecast.fid, records.oid 
 ORDER BY forecast.fid */
+/*
+Out Put
+FID          notebook     online
+---------- ---------- ----------
+F02                 1          0
+F03                 1          1
+F04                 1          1
+F05                 1          0
+F08                 0          1
+F09                 0          1
+F15                 1          0
 
+7 rows selected. */
 
 
 
