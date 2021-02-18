@@ -56,7 +56,7 @@ AND observations.ob_date = forecast.forecast_date
 AND wservice.wid = makes.wid
 AND observations.temperature >= forecast.low
 AND observations.temperature <= forecast.high
-group by wservice.wid, wservice.w_name;
+GROUP by wservice.wid, wservice.w_name;
 
 /*
 
