@@ -46,3 +46,23 @@ WHERE forecast.city = observations.city
 AND forecast.forecast_date = observations.ob_date
 AND forecast.low > observations.temperature /* FORECASTED LOW was higher than the actual temp */
 ORDER BY observations.ob_date, observations.city;
+
+/* PROBLEM H */
+SELECT wservice.wid, wservice.w_name, COUNT(forecast.fid) AS "Accurarate_Forecasts"
+FROM observations, forecast, makes, wservice
+WHERE forecast.city = observations.city
+AND forecast.fid = makes.fid
+AND observations.ob_date = forecast.forecast_date
+AND wservice.wid = makes.wid
+AND observations.temperature >= forecast.low
+AND observations.temperature <= forecast.high
+group by wservice.wid, wservice.w_name;
+
+/*
+
+       WID W_NAME                         Accurarate_Forecasts
+---------- ------------------------------ --------------------
+       200 Minnesota Weather Service                         1
+       600 Canadian Weather Service                          2
+
+*/
