@@ -218,6 +218,7 @@ create table Observations(
   precipitation float,
   streetAddress char(20),
   city char(20),
+  method char(20),
   state char(10),
   pid integer,
   primary key(oid),
@@ -226,34 +227,34 @@ create table Observations(
 );
 ----------------------------
 ------------------------------------
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(2,TO_DATE('30-DEC-2020','DD-MON-YYYY'),32,40,0.1,'65 streetS','St.Cloud','MN','11567');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(4,TO_DATE('30-DEC-2020','DD-MON-YYYY'),10,20,0.0,'798 streetE','Duluth','MN','88331');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(6,TO_DATE('30-DEC-2020','DD-MON-YYYY'),32,50,1.5,'892 streetM','Minneapolis','MN','3289');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(8,TO_DATE('29-NOV-2020','DD-MON-YYYY'),42,29,0.0,'65 streetS','St.Cloud','MN','11567');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(10,TO_DATE('14-JAN-2021','DD-MON-YYYY'),5,41,0.0,'798 streetE','Duluth','MN','88331');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(12,TO_DATE('14-JAN-2021','DD-MON-YYYY'),15,45,0.0,'892 streetM','Minneapolis','MN','3289');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(14,TO_DATE('2-FEB-2021','DD-MON-YYYY'),16,63,2.0,'65 streetS','St.Cloud','MN','11567');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(16,TO_DATE('31-DEC-2020','DD-MON-YYYY'),16,40,0.1,'65 streetS','St.Cloud','MN','11567');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(18,TO_DATE('31-DEC-2020','DD-MON-YYYY'),19,20,0.0,'798 streetE','Duluth','MN','88331');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(20,TO_DATE('31-DEC-2020','DD-MON-YYYY'),38,49,1.5,'892 streetM','Minneapolis','MN','3289');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(22,TO_DATE('30-NOV-2020','DD-MON-YYYY'),39,29,0.0,'65 streetS','St.Cloud','MN','11567');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(30,TO_DATE('15-JAN-2021','DD-MON-YYYY'),12,50,3.0,'798 streetE','Duluth','MN','88331');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(32,TO_DATE('15-JAN-2021','DD-MON-YYYY'),27,45,0.0,'892 streetM','Minneapolis','MN','3289');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
-VALUES(34,TO_DATE('3-FEB-2021','DD-MON-YYYY'),33,63,0.0,'65 streetS','St.Cloud','MN','11567');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(2,TO_DATE('30-DEC-2020','DD-MON-YYYY'),32,40,0.1,'65 streetS','St.Cloud','MN','11567','notebook');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(4,TO_DATE('30-DEC-2020','DD-MON-YYYY'),10,20,0.0,'798 streetE','Duluth','MN','88331','online');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(6,TO_DATE('30-DEC-2020','DD-MON-YYYY'),32,50,1.5,'892 streetM','Minneapolis','MN','3289','online');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(8,TO_DATE('29-NOV-2020','DD-MON-YYYY'),42,29,0.0,'65 streetS','St.Cloud','MN','11567','notebook');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(10,TO_DATE('14-JAN-2021','DD-MON-YYYY'),5,41,0.0,'798 streetE','Duluth','MN','88331','online');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(12,TO_DATE('14-JAN-2021','DD-MON-YYYY'),15,45,0.0,'892 streetM','Minneapolis','MN','3289','online');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(14,TO_DATE('2-FEB-2021','DD-MON-YYYY'),16,63,2.0,'65 streetS','St.Cloud','MN','11567','notebook');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(16,TO_DATE('31-DEC-2020','DD-MON-YYYY'),16,40,0.1,'65 streetS','St.Cloud','MN','11567','notebook');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(18,TO_DATE('31-DEC-2020','DD-MON-YYYY'),19,20,0.0,'798 streetE','Duluth','MN','88331','online');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(20,TO_DATE('31-DEC-2020','DD-MON-YYYY'),38,49,1.5,'892 streetM','Minneapolis','MN','3289','online');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(22,TO_DATE('30-NOV-2020','DD-MON-YYYY'),39,29,0.0,'65 streetS','St.Cloud','MN','11567','notebook');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(30,TO_DATE('15-JAN-2021','DD-MON-YYYY'),12,50,3.0,'798 streetE','Duluth','MN','88331','notebook');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(32,TO_DATE('15-JAN-2021','DD-MON-YYYY'),27,45,0.0,'892 streetM','Minneapolis','MN','3289','online');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method)
+VALUES(34,TO_DATE('3-FEB-2021','DD-MON-YYYY'),33,63,0.0,'65 streetS','St.Cloud','MN','11567','notebook');
 -------------------------------------------
 ----------------------------------------------
                                                 
