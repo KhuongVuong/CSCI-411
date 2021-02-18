@@ -1,7 +1,10 @@
 --Project 1--   
 --Saurav Adhikari--
+--Khuong Vuong--
+--Joseph Winkler--
 
-create table Person(
+--CREATING PERSON TABLE--
+create table Person( 
 pid integer,
 name char(20),
 primary key(pid)
@@ -23,6 +26,8 @@ INSERT INTO Person(pid,name)
 VALUES(2557,'Bill');
 -----------------------
 -----------------------
+
+--CREATING OBSERVERS TABLE--
 create table Observers(
 pid integer,
 primary key(pid),
@@ -39,6 +44,8 @@ INSERT INTO Observers(pid)
 VALUES(88331);
 -----------------------
 -----------------------
+
+--CREATING METEOROLOGISTS TABLE--
 create table Meteorologists(
 pid integer,
 primary key(pid),
@@ -53,6 +60,8 @@ INSERT INTO Meteorologists(pid)
 VALUES(10234);
 -----------------------
 -----------------------
+
+--CREATING CONSUMERS TABLE--
 create table Consumers(
 pid integer,
 primary key(pid),
@@ -69,6 +78,8 @@ INSERT INTO Consumers(pid)
 VALUES(10234);
 -----------------------
 -----------------------
+
+--CREATING ADDRESS TABLE--
 create table Address(
   pid integer,
   streetAddress char(20),
@@ -98,6 +109,8 @@ INSERT INTO Address(pid,streetAddress,city,state)
 VALUES(74591,'999 streetG','Duluth','MN');
 -----------------------------------------
 --------------------------------
+
+--CREATING FORECAST TABLE--
 create table Forecast(
 fid char(10),
 city char(20),
@@ -105,13 +118,6 @@ high integer,
 low integer,
 forecast_date date,
 primary key(fid)
-
---pid integer,  -- For FKs to link relationships called: views and presents
---oid integer, -- for FKs to link relationship called: makes
-
--- foreign key (pid) references Consumers (pid), -- Views
--- foreign key (pid) references Meteorologists (pid), -- Presents
--- foreign key (oid) references Observation (oid) -- Makes
 );
 --------------------------
 INSERT INTO Forecast(fid, high, low, city, forecast_date)
@@ -130,6 +136,8 @@ INSERT INTO Forecast(fid, high, low, city, forecast_date)
 VALUES('F15',95,72,'St.Cloud', TO_DATE('03-FEB-2021', 'DD-MON-YYYY'));
 -----------------------------------------
 --------------------------------
+                                       
+--CREATING WARNINGS TABLE--                                       
 create table Warnings(
 wwid char(10),
 w_date date,
@@ -146,6 +154,8 @@ INSERT INTO Warnings(wwid, description, city, w_date)
 VALUES('W15','Cold Warning','St.Cloud', TO_DATE('05-FEB-2021', 'DD-MON-YYYY'));
 -----------------------------------------
 --------------------------------
+                                                
+--CREATING PRESENTS TABLE--                                                 
 create table Presents(
 pid integer,
 fid char(10),
@@ -174,6 +184,8 @@ INSERT INTO Presents(pid, fid)
 VALUES(10234,'F09');
 -----------------------------------------
 --------------------------------
+                                                
+--CREATING VIEWED TABLE--                                                 
 create table Viewed(
 pid integer,
 fid char(10),
@@ -195,7 +207,9 @@ VALUES(88331,'F03');
 INSERT INTO Viewed(pid, fid)
 VALUES(88331,'F04');
 -----------------------------------------
---------------------------------                                                 
+--------------------------------  
+                                                
+--CREATING OBSERVATIONS TABLE--                                                 
 create table Observations(
   oid integer,
   ob_date date,
@@ -213,36 +227,38 @@ create table Observations(
 );
 ----------------------------
 ------------------------------------
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(2,TO_DATE('30-DEC-2020','DD-MON-YYYY'),32,40,0.1,'65 streetS','St.Cloud','MN','11567','notebook');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(4,TO_DATE('30-DEC-2020','DD-MON-YYYY'),10,20,0.0,'798 streetE','Duluth','MN','88331','online');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(6,TO_DATE('30-DEC-2020','DD-MON-YYYY'),32,50,1.5,'892 streetM','Minneapolis','MN','3289','online');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(8,TO_DATE('29-NOV-2020','DD-MON-YYYY'),42,29,0.0,'65 streetS','St.Cloud','MN','11567','notebook');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(10,TO_DATE('14-JAN-2021','DD-MON-YYYY'),5,41,0.0,'798 streetE','Duluth','MN','88331','online');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(12,TO_DATE('14-JAN-2021','DD-MON-YYYY'),15,45,0.0,'892 streetM','Minneapolis','MN','3289','online');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(14,TO_DATE('2-FEB-2021','DD-MON-YYYY'),16,63,2.0,'65 streetS','St.Cloud','MN','11567','notebook');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(16,TO_DATE('31-DEC-2020','DD-MON-YYYY'),16,40,0.1,'65 streetS','St.Cloud','MN','11567','notebook');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(18,TO_DATE('31-DEC-2020','DD-MON-YYYY'),19,20,0.0,'798 streetE','Duluth','MN','88331','online');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(20,TO_DATE('31-DEC-2020','DD-MON-YYYY'),38,49,1.5,'892 streetM','Minneapolis','MN','3289','online');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(22,TO_DATE('30-NOV-2020','DD-MON-YYYY'),39,29,0.0,'65 streetS','St.Cloud','MN','11567','notebook');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(30,TO_DATE('15-JAN-2021','DD-MON-YYYY'),12,50,3.0,'798 streetE','Duluth','MN','88331','notebook');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(32,TO_DATE('15-JAN-2021','DD-MON-YYYY'),27,45,0.0,'892 streetM','Minneapolis','MN','3289','online');
-INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid, method) 
-VALUES(34,TO_DATE('3-FEB-2021','DD-MON-YYYY'),33,63,0.0,'65 streetS','St.Cloud','MN','11567','notebook');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(2,TO_DATE('30-DEC-2020','DD-MON-YYYY'),32,40,0.1,'65 streetS','St.Cloud','MN','11567');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(4,TO_DATE('30-DEC-2020','DD-MON-YYYY'),10,20,0.0,'798 streetE','Duluth','MN','88331');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(6,TO_DATE('30-DEC-2020','DD-MON-YYYY'),32,50,1.5,'892 streetM','Minneapolis','MN','3289');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(8,TO_DATE('29-NOV-2020','DD-MON-YYYY'),42,29,0.0,'65 streetS','St.Cloud','MN','11567');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(10,TO_DATE('14-JAN-2021','DD-MON-YYYY'),5,41,0.0,'798 streetE','Duluth','MN','88331');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(12,TO_DATE('14-JAN-2021','DD-MON-YYYY'),15,45,0.0,'892 streetM','Minneapolis','MN','3289');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(14,TO_DATE('2-FEB-2021','DD-MON-YYYY'),16,63,2.0,'65 streetS','St.Cloud','MN','11567');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(16,TO_DATE('31-DEC-2020','DD-MON-YYYY'),16,40,0.1,'65 streetS','St.Cloud','MN','11567');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(18,TO_DATE('31-DEC-2020','DD-MON-YYYY'),19,20,0.0,'798 streetE','Duluth','MN','88331');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(20,TO_DATE('31-DEC-2020','DD-MON-YYYY'),38,49,1.5,'892 streetM','Minneapolis','MN','3289');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(22,TO_DATE('30-NOV-2020','DD-MON-YYYY'),39,29,0.0,'65 streetS','St.Cloud','MN','11567');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(30,TO_DATE('15-JAN-2021','DD-MON-YYYY'),12,50,3.0,'798 streetE','Duluth','MN','88331');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(32,TO_DATE('15-JAN-2021','DD-MON-YYYY'),27,45,0.0,'892 streetM','Minneapolis','MN','3289');
+INSERT INTO Observations(oid, ob_date, temperature, humidity, precipitation, streetAddress, city, state, pid) 
+VALUES(34,TO_DATE('3-FEB-2021','DD-MON-YYYY'),33,63,0.0,'65 streetS','St.Cloud','MN','11567');
 -------------------------------------------
-----------------------------------------------                                            
+----------------------------------------------
+                                                
+--CREATING WEATHER SERVICE TABLE--                                                 
 create table Wservice(
     wid integer,
     w_name char(30),
@@ -258,6 +274,8 @@ INSERT INTO Wservice(wid, w_name)
 VALUES (600, 'Canadian Weather Service');
 -------------------------------------
 --------------------------------------
+                                                
+--CREATING RECORDS TABLE--                                                 
 create table Records(
 fid char(10),
 wid integer,
@@ -288,7 +306,9 @@ VALUES('F09',400,12);
 INSERT INTO Records(fid, wid, oid)
 VALUES('F15',200,14);
 -----------------------------------------
-----------------------------------------                                               
+----------------------------------------
+                                                
+--CREATING ISSUED TABLE--                                                 
 create table Issued(
 wid integer,
 wwid char(10),
@@ -305,7 +325,9 @@ VALUES(200,'W08');
 INSERT INTO Issued(wid, wwid)
 VALUES(600,'W15');
 -----------------------------------------
----------------------------------------                                               
+---------------------------------------  
+                                                
+--CREATING MAKES TABLE--                                              
 create table Makes(
 wid integer,
 fid char(10),
@@ -337,6 +359,8 @@ INSERT INTO Makes(fid, wid, oid)
 VALUES('F15',200,14);                                               
 -----------------------------------------
 --------------------------------------- 
+                                                
+--CREATING LIVESAT TABLE--                                                
 create table livesAt(
 pid integer,
 streetAddress char(20),
