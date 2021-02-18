@@ -18,19 +18,25 @@ AND address.pid NOT IN
 /* correct because that is bill's address and he is an outsider */
 
 /* PROBLEM F */
-
-SELECT person.pid, COUNT(viewed.fid), COUNT(presents.fid)
+SELECT person.pid, COUNT(DISTINCT viewed.fid) AS "Vcount", COUNT(DISTINCT presents.fid) AS "Pcount"
 FROM person
 LEFT JOIN viewed ON person.pid = viewed.pid
 LEFT JOIN forecast ON viewed.fid = forecast.fid 
-/*LEFT JOIN presents ON person.pid = presents.pid */
-group by person.pid;
-
-SELECT person.pid, COUNT(presents.fid)
-FROM person
 LEFT JOIN presents ON person.pid = presents.pid
-LEFT JOIN forecast ON presents.fid = forecast.fid 
 group by person.pid;
+/* OutPut
+       PID     Vcount     Pcount
+---------- ---------- ----------
+      2557          0          0
+      3289          2          0
+     10234          2          2
+     11567          0          0
+     17645          0          7
+     74591          0          0
+     88331          2          0
+
+7 rows selected. 
+*/
 
 /* PROBLEM G */
 SELECT observations.city, observations.ob_date, observations.temperature, forecast.low 
