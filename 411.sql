@@ -220,7 +220,6 @@ create table Observations(
   city char(20),
   state char(10),
   pid integer,
-  method char(20),
   primary key(oid),
   foreign key(pid) references observers(pid),
   foreign key(streetAddress,city,state) references address(streetAddress,city,state)
