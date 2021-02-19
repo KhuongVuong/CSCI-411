@@ -45,3 +45,31 @@ JUSTIFICATION:  the person id and name, the city name and number of person in li
 
 	
 */
+
+
+/*
+ALTERNATIVE  NOT compiled yet          */
+/*List of all persons that has multiple identity */
+
+SELECT person.pid, person.name
+FROM person, observer, meteorologists,consumers
+WHERE person.pid = observer.pid = meteorologists.pid
+OR person.pid = observer.pid = consumers.pid
+OR person.pid = meteorologists.pid = consumers.pid
+GROUP BY person.pidm, person.name;
+
+/*OUTPUT
+
+       PID NAME                         
+---------- --------------------
+     10234 Able                          
+      3289 George                        
+     88331 Alice                          
+     74591 Jane                               
+
+
+JUSTIFICATION:  the person id and name, the city name and number of person in list who is living in the city are in the output
+
+
+	
+*/
