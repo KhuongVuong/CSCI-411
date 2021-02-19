@@ -24,7 +24,7 @@ JUSTIFICATION:  the person id and number of observations is in the output
 SELECT person.pid, person.name, livesat.city
 FROM person, livesat
 WHERE person.pid = livesat.pid
-GROUP BY person.pidm, person.name;
+GROUP BY person.pid, person.name, livesat.city;
 
 /*OUTPUT
 
@@ -41,35 +41,6 @@ GROUP BY person.pidm, person.name;
 7 rows selected. 
 
 JUSTIFICATION:  the person id and name, the city name and number of person in list who is living in the city are in the output
-
-
-	
-*/
-
-
 /*
-ALTERNATIVE  NOT compiled yet          */
-/*List of all persons that has multiple identity */
-
-SELECT person.pid, person.name
-FROM person, observer, meteorologists,consumers
-WHERE person.pid = observer.pid = meteorologists.pid
-OR person.pid = observer.pid = consumers.pid
-OR person.pid = meteorologists.pid = consumers.pid
-GROUP BY person.pidm, person.name;
-
-/*OUTPUT
-
-       PID NAME                         
----------- --------------------
-     10234 Able                          
-      3289 George                        
-     88331 Alice                          
-     74591 Jane                               
 
 
-JUSTIFICATION:  the person id and name, the city name and number of person in list who is living in the city are in the output
-
-
-	
-*/

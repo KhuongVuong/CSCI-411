@@ -18,12 +18,12 @@ AND address.pid NOT IN
 /* correct because that is bill's address and he is an outsider */
 
 /* PROBLEM F */
-SELECT person.pid person.name, COUNT(DISTINCT viewed.fid) AS "Vcount", COUNT(DISTINCT presents.fid) AS "Pcount"
+SELECT person.pid, person.name, COUNT(DISTINCT viewed.fid) AS "Vcount", COUNT(DISTINCT presents.fid) AS "Pcount"
 FROM person
 LEFT OUTER JOIN viewed ON person.pid = viewed.pid
 LEFT JOIN forecast ON viewed.fid = forecast.fid 
 LEFT JOIN presents ON person.pid = presents.pid
-GROUP BY person.pid person.name;
+GROUP BY person.pid, person.name
 ORDER BY person.pid;
 /* OutPut
        PID     Vcount     Pcount

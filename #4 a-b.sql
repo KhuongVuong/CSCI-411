@@ -25,9 +25,9 @@ OutPut
 
 
 /* c */
-SELECT DISTINCT streetaddress, city, state, MAX(temperature)
+SELECT streetaddress, city, state, MAX(temperature)
 FROM Observations 
-GROUP  BY streetaddress, city, state 
+GROUP  BY streetaddress, city, state;
 /*
 Out put
 STREETADDRESS        CITY                 STATE      Max_Temperature
@@ -42,8 +42,8 @@ COUNT(CASE method WHEN 'notebook' THEN 1 ELSE NULL END) AS "notebook",
 COUNT(CASE method WHEN 'online' THEN 1 ELSE NULL END) AS "online"
 FROM records , forecast, observations
 WHERE records.fid = forecast.fid AND records.oid = observations.oid
-GROUP BY forecast.fid, records.oid 
-ORDER BY forecast.fid */
+GROUP BY forecast.fid
+ORDER BY forecast.fid;
 /*
 Out Put
 FID          notebook     online
