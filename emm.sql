@@ -21,11 +21,11 @@ JUSTIFICATION:  the person id and number of observations is in the output
 
 /*List of all persons with the city they live in(id, name, city)*/
 
-SELECT person.pid, person.name, address.city, COUNT(address.city) AS Numcount
-FROM person, address
-WHERE person.pid = address.pid
-GROUP BY person.pid person.name;
-ORDER BY person.pid
+SELECT person.pid, person.name, livesat.city
+FROM person, livesat
+WHERE person.pid = livesat.pid
+GROUP BY person.pidm, person.name;
+
 /*OUTPUT
 
        PID NAME                 CITY                
